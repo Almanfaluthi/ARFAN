@@ -14,37 +14,41 @@
 #' @param accent_col Color for highlights (default: "red").
 #' @param exclude_terms Vector of strings. Specific authors or countries to remove from the top 3 analysis (e.g., c("Sweden")).
 #'
-#' @importFrom dplyr summarize mutate group_by arrange top_n n_distinct filter select slice
-#' @importFrom ggplot2 ggplot aes geom_tile geom_text geom_line geom_area geom_point geom_col coord_flip theme_void theme_minimal labs theme element_text element_rect element_blank margin expansion
+#' @importFrom dplyr summarize mutate group_by arrange top_n n_distinct filter select slice desc n %>%
+#' @importFrom ggplot2 ggplot aes geom_tile geom_text geom_line geom_area geom_point geom_col coord_flip theme_void theme_minimal labs theme element_text element_rect element_blank margin expansion annotate xlim ylim scale_y_continuous
 #' @importFrom patchwork wrap_plots plot_layout plot_annotation
 #' @importFrom stringr str_trim
-#' @importFrom rlang sym
+#' @importFrom rlang sym !!
 #' @importFrom tidyr separate_rows
+#' @importFrom utils head tail
+#' @importFrom stats reorder
 #' @export
 #' @examples
 #' \dontrun{
 #' # 1. Standard (Maroon/Red look)
-#' marsumy_A0_ExecutiveSummary(df_bib)
+#' alman_bib_A0_ExecutiveSummary(data = df_patientsafety,
+#' year_col = "Year", author_col = "Authors", cite_col = "Cited by",
+#' affil_col = "Affiliations",
+#' primary_col = "#2c3e50",  # Professional Slate Blue
+#' accent_col = "#e74c3c",   # Accent Red)
 #'
-#' # 2. Standard with Exclusion (Remove Sweden)
-#' marsumy_A0_ExecutiveSummary(df_bib, exclude_terms = c("Sweden"))
-#' }
-alman_bib_A0_ExecutiveSummary <- function(data,
-                                        year_col = "Year",
-                                        author_col = "Authors",
-                                        cite_col = "Cited by",
-                                        affil_col = "Affiliations",
-                                        primary_col = "maroon",
-                                        accent_col = "red",
-                                        exclude_terms = NULL) {
+#' # 2. Standard with Exclusion (Remove USA)
+#' (dashboard2 <- alman_bib_A0_ExecutiveSummary( data = df_leadership,
+#' year_col = "Year", author_col = "Authors", cite_col = "Cited by",
+#' affil_col = "Affiliations",
+#' primary_col = "#2c3e50",  # Professional Slate Blue
+#' accent_col = "#e74c3c",   # Accent Red
+#' exclude_terms = c("United States") # Example exclusion))
+#'}
 
-  # --- AUTO LOAD LIBRARIES ---
-  if(!require(dplyr)) install.packages("dplyr"); library(dplyr)
-  if(!require(ggplot2)) install.packages("ggplot2"); library(ggplot2)
-  if(!require(patchwork)) install.packages("patchwork"); library(patchwork)
-  if(!require(stringr)) install.packages("stringr"); library(stringr)
-  if(!require(tidyr)) install.packages("tidyr"); library(tidyr)
-  if(!require(rlang)) install.packages("rlang"); library(rlang)
+alman_bib_A0_ExecutiveSummary <- function(data,
+                                          year_col = "Year",
+                                          author_col = "Authors",
+                                          cite_col = "Cited by",
+                                          affil_col = "Affiliations",
+                                          primary_col = "maroon",
+                                          accent_col = "red",
+                                          exclude_terms = NULL) {
 
   # ==========================================
   # 1. SMART COLUMN DETECTION (The Fix)
@@ -130,7 +134,7 @@ alman_bib_A0_ExecutiveSummary <- function(data,
       annotate("text", x = 0.5, y = 0.2, label = subtext, size = 2.5, fontface = "italic", color = "gray60") +
       xlim(0, 1) + ylim(0, 1) +
       theme_void() +
-      theme(panel.background = element_rect(fill = "white", color = "gray90", size = 1))
+      theme(panel.background = element_rect(fill = "white", color = "gray90", linewidth = 1))
   }
 
   card1 <- create_card("DOCUMENTS", total_docs, "Total Volume", primary_col)
@@ -148,7 +152,7 @@ alman_bib_A0_ExecutiveSummary <- function(data,
 
   p_trend <- ggplot(df_trend, aes(x = Year, y = Freq)) +
     geom_area(fill = primary_col, alpha = 0.1) +
-    geom_line(color = primary_col, size = 1) +
+    geom_line(color = primary_col, linewidth = 1) +
     geom_point(data = tail(df_trend, 1), color = accent_col, size = 2) +
     labs(title = "Production Trend", subtitle = paste0("Timeline: ", min(years), " - ", max(years))) +
     theme_minimal() +

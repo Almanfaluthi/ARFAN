@@ -1,0 +1,12 @@
+---
+title: "TestDrive"
+author: "Almanfaluthi"
+date: "2026-06-14"
+output: html_document
+---
+
+```{r message=TRUE, warning=TRUE, paged.print=TRUE}
+alman_bib_A0_ExecutiveSummary(df_patientsafety)
+alman_bib_A0_ExecutiveSummary(df_leadership)
+```
+

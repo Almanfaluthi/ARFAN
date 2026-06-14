@@ -40,9 +40,18 @@ in a modern, grid-based infographic layout.
 \examples{
 \dontrun{
 # 1. Standard (Maroon/Red look)
-marsumy_A0_ExecutiveSummary(df_bib)
+alman_bib_A0_ExecutiveSummary(data = df_patientsafety,
+year_col = "Year", author_col = "Authors", cite_col = "Cited by",
+affil_col = "Affiliations",
+primary_col = "#2c3e50",  # Professional Slate Blue
+accent_col = "#e74c3c",   # Accent Red)
 
-# 2. Standard with Exclusion (Remove Sweden)
-marsumy_A0_ExecutiveSummary(df_bib, exclude_terms = c("Sweden"))
+# 2. Standard with Exclusion (Remove USA)
+(dashboard2 <- alman_bib_A0_ExecutiveSummary( data = df_leadership,
+year_col = "Year", author_col = "Authors", cite_col = "Cited by",
+affil_col = "Affiliations",
+primary_col = "#2c3e50",  # Professional Slate Blue
+accent_col = "#e74c3c",   # Accent Red
+exclude_terms = c("United States") # Example exclusion))
 }
 }

@@ -1,9 +1,9 @@
-#' Executive Summary Dashboard (Infographic Style)
+#' Executive Summary Dashboard (Indonesian Institution Focus)
 #'
 #' @description
 #' A comprehensive "One-Page" dashboard that summarizes the entire dataset.
 #' It calculates CAGR, Collaboration Rates, and H-Indices, and presents them
-#' in a modern, grid-based infographic layout.
+#' in a modern, grid-based infographic layout, focusing on top institutions.
 #'
 #' @param data A data frame containing bibliographic data.
 #' @param year_col String. Year column (default: "Year").
@@ -12,7 +12,7 @@
 #' @param affil_col String. Affiliation column (default: "Affiliations").
 #' @param primary_col Color for main elements (default: "maroon").
 #' @param accent_col Color for highlights (default: "red").
-#' @param exclude_terms Vector of strings. Specific authors or countries to remove from the top 3 analysis (e.g., c("Sweden")).
+#' @param exclude_terms Vector of strings. Specific authors or institutions to remove from the top 3 analysis.
 #'
 #' @importFrom dplyr summarize mutate group_by arrange top_n n_distinct filter select slice desc n %>%
 #' @importFrom ggplot2 ggplot aes geom_tile geom_text geom_line geom_area geom_point geom_col coord_flip theme_void theme_minimal labs theme element_text element_rect element_blank margin expansion annotate xlim ylim scale_y_continuous
@@ -25,29 +25,23 @@
 #' @export
 #' @examples
 #' \dontrun{
-#' # 1. Standard (Maroon/Red look)
-#' alman_bib_A0_ExecutiveSummary(df_patientsafety, year_col = "Year", author_col = "Authors", cite_col = "Cited by", affil_col = "Affiliations")
-#'
-#' # 2. Standard with Exclusion (Remove USA)
-#' alman_bib_A0_ExecutiveSummary(df_herbal_leptospirosis, primary_col = "#2c3e50", accent_col = "#e74c3c", exclude_terms = c("United States"))
-#'
-#' # 3. Standard with other colour
-#' alman_bib_A0_ExecutiveSummary(df_herbal_snakebite, primary_col = "red", accent_col = "blue", exclude_terms = c("United States"))
-#'}
+#' # Standard deployment for Indonesian institutional analysis
+#' alman_bib_A0_ExecutiveSummaryIndo(df_herbal_tb, primary_col = "#1a5276", accent_col = "#e67e22")
+#' alman_bib_A0_ExecutiveSummaryIndo(df_herbal_filaria, primary_col = "#1a5276", accent_col = "#e67e22")
+#' }
 
-alman_bib_A0_ExecutiveSummary <- function(data,
-                                          year_col = "Year",
-                                          author_col = "Authors",
-                                          cite_col = "Cited by",
-                                          affil_col = "Affiliations",
-                                          primary_col = "maroon",
-                                          accent_col = "red",
-                                          exclude_terms = NULL) {
+alman_bib_A0_ExecutiveSummaryIndo <- function(data,
+                                              year_col = "Year",
+                                              author_col = "Authors",
+                                              cite_col = "Cited by",
+                                              affil_col = "Affiliations",
+                                              primary_col = "maroon",
+                                              accent_col = "red",
+                                              exclude_terms = NULL) {
 
   # ==========================================
-  # 1. SMART COLUMN DETECTION (The Fix)
+  # 1. SMART COLUMN DETECTION
   # ==========================================
-  # Find the actual Citation column name (handles "Cited.by" vs "Cited by")
   possible_cites <- c(cite_col, "Cited.by", "Cited_by", "TC", "Cites", "Total.Citations")
   actual_cite_col <- NULL
   for(col in possible_cites) {
@@ -57,7 +51,6 @@ alman_bib_A0_ExecutiveSummary <- function(data,
     }
   }
 
-  # If still not found, warn user but don't crash
   if(is.null(actual_cite_col)) {
     warning("Could not find Citation column. Citations will be 0.")
     data$Target_Cites <- 0
@@ -66,12 +59,10 @@ alman_bib_A0_ExecutiveSummary <- function(data,
     data$Target_Cites[is.na(data$Target_Cites)] <- 0
   }
 
-  # Ensure other columns exist
   data[[year_col]] <- as.numeric(as.character(data[[year_col]]))
   data[[author_col]] <- as.character(data[[author_col]])
   data[[affil_col]] <- as.character(data[[affil_col]])
 
-  # Normalize exclude_terms to lowercase for case-insensitive filtering
   if(!is.null(exclude_terms)) {
     exclude_terms <- tolower(exclude_terms)
   } else {
@@ -81,15 +72,11 @@ alman_bib_A0_ExecutiveSummary <- function(data,
   # ==========================================
   # 2. CALCULATE KPI METRICS (The 5 Boxes)
   # ==========================================
-
-  # (1) Total Documents
   total_docs <- nrow(data)
 
-  # (2) Total Authors
   all_authors <- unlist(strsplit(data[[author_col]], ";"))
   total_authors <- length(unique(str_trim(all_authors)))
 
-  # (3) International Collaboration %
   count_countries <- function(affil_str) {
     if(is.na(affil_str) || nchar(trimws(affil_str)) == 0) return(0)
     parts <- unlist(strsplit(affil_str, ";"))
@@ -103,12 +90,10 @@ alman_bib_A0_ExecutiveSummary <- function(data,
   data$n_countries <- sapply(data[[affil_col]], count_countries)
   int_collab_rate <- round((sum(data$n_countries > 1, na.rm=TRUE) / total_docs) * 100, 1)
 
-  # (4) Document Average Year
   years <- data[[year_col]]
   years <- years[!is.na(years) & years > 1900 & years < 2030]
   avg_year <- round(mean(years, na.rm=TRUE))
 
-  # (5) Growth Rate (CAGR)
   year_counts <- table(years)
   if(length(year_counts) > 1) {
     start_n <- as.numeric(head(year_counts, 1))
@@ -161,7 +146,7 @@ alman_bib_A0_ExecutiveSummary <- function(data,
     tidyr::separate_rows(Item, sep = ";") %>%
     mutate(Item = str_trim(Item)) %>%
     filter(Item != "") %>%
-    filter(!(tolower(Item) %in% exclude_terms)) %>% # <-- NEW EXCLUSION FILTER
+    filter(!(tolower(Item) %in% exclude_terms)) %>%
     group_by(Item) %>%
     summarize(Pubs = n(), Total_Cites = sum(Cites, na.rm=TRUE)) %>%
     top_n(3, wt = Pubs) %>%
@@ -183,29 +168,52 @@ alman_bib_A0_ExecutiveSummary <- function(data,
           plot.margin = margin(10, 10, 10, 10))
 
   # ==========================================
-  # 6. BOTTOM RIGHT: TOP 3 COUNTRIES
+  # 6. BOTTOM RIGHT: TOP 3 UNIVERSITIES/INSTITUTIONS
   # ==========================================
-  extract_country_safe <- function(x) {
+  extract_institution_safe <- function(x) {
     if(is.na(x) || nchar(trimws(x)) == 0) return(NA)
+
+    # Ambil afiliasi penulis pertama (sebelum titik koma)
     parts <- unlist(strsplit(x, ";"))[1]
+
+    # Pecah berdasarkan koma
     locs <- unlist(strsplit(parts, ","))
-    if(length(locs) > 0) return(str_trim(tail(locs, 1))) else return(NA)
+    locs <- str_trim(locs)
+
+    # Deteksi cerdas: Cari elemen yang mengandung kata "Universitas", "University", "Institut", dll.
+    keywords <- "Universitas|University|Institut|Institute|Politeknik|Sekolah Tinggi|Hospital|Rumah Sakit|RSUD|RSUP|Kementerian|Ministry"
+    match_idx <- grep(keywords, locs, ignore.case = TRUE)
+
+    if(length(match_idx) > 0) {
+      # Jika ketemu, ambil elemen tersebut (biasanya nama universitas/RS)
+      return(locs[match_idx[1]])
+    } else {
+      # Fallback: Jika tidak ada kata kunci, ambil elemen kedua dari belakang (seringkali ini nama institusinya)
+      # atau fallback ke elemen pertama jika datanya sangat pendek
+      if(length(locs) >= 3) return(locs[length(locs)-2])
+      return(locs[1])
+    }
   }
 
-  df_country_exp <- data %>%
-    mutate(Country = sapply(!!rlang::sym(affil_col), extract_country_safe)) %>%
-    filter(!is.na(Country)) %>%
-    mutate(Country = gsub("United States", "USA", Country),
-           Country = gsub("United Kingdom", "UK", Country),
-           Country = gsub("Indonesia", "IDN", Country)) %>%
-    filter(!(tolower(Country) %in% exclude_terms)) %>% # <-- NEW EXCLUSION FILTER
-    group_by(Country) %>%
+  df_inst_exp <- data %>%
+    mutate(Institution = sapply(!!rlang::sym(affil_col), extract_institution_safe)) %>%
+    filter(!is.na(Institution)) %>%
+    # Optional cleanup for long Indonesian university names to prevent string overflow on graph labels
+    mutate(Institution = gsub("Universitas Indonesia", "UI", Institution, ignore.case = TRUE),
+           Institution = gsub("Universitas Gadjah Mada", "UGM", Institution, ignore.case = TRUE),
+           Institution = gsub("Universitas Airlangga", "UNAIR", Institution, ignore.case = TRUE),
+           Institution = gsub("Universitas Padjadjaran", "UNPAD", Institution, ignore.case = TRUE),
+           Institution = gsub("Universitas Diponegoro", "UNDIP", Institution, ignore.case = TRUE),
+           Institution = gsub("Universitas Hasanuddin", "UNHAS", Institution, ignore.case = TRUE),
+           Institution = gsub("Universitas Brawijaya", "UB", Institution, ignore.case = TRUE)) %>%
+    filter(!(tolower(Institution) %in% exclude_terms)) %>%
+    group_by(Institution) %>%
     summarize(Pubs = n(), Total_Cites = sum(Target_Cites, na.rm=TRUE)) %>%
     top_n(3, wt = Pubs) %>%
     arrange(desc(Pubs)) %>%
     slice(1:3)
 
-  p_country <- ggplot(df_country_exp, aes(x = reorder(Country, Pubs), y = Pubs)) +
+  p_institution <- ggplot(df_inst_exp, aes(x = reorder(Institution, Pubs), y = Pubs)) +
     geom_col(fill = "gray70", width = 0.5) +
     geom_point(aes(y = Pubs + (max(Pubs)*0.1), size = Total_Cites), color = primary_col, show.legend = FALSE) +
     geom_text(aes(label = Pubs), y = 0.2, color = "white", size = 3, fontface = "bold", hjust=0) +
@@ -213,7 +221,7 @@ alman_bib_A0_ExecutiveSummary <- function(data,
               size = 3, color = primary_col, fontface = "italic", hjust=0) +
     scale_y_continuous(expand = expansion(mult = c(0, 0.4))) +
     coord_flip() +
-    labs(title = "Top 3 Countries", subtitle = "Bars: Pubs | Dots: Citations") +
+    labs(title = "Top 3 Institutions", subtitle = "Bars: Pubs | Dots: Citations") +
     theme_void() +
     theme(axis.text.y = element_text(hjust = 1, color = "black", face="bold", margin=margin(r=5)),
           plot.title = element_text(size = 11, face = "bold"),
@@ -222,14 +230,13 @@ alman_bib_A0_ExecutiveSummary <- function(data,
   # ==========================================
   # 7. ASSEMBLE
   # ==========================================
-
   layout <- (card1 | card2 | card3 | card4 | card5) /
     (p_trend) /
-    (p_auth | p_country) +
+    (p_auth | p_institution) +
     plot_layout(heights = c(0.8, 1.2, 1.5)) +
     plot_annotation(
       title = "Bibliometric Executive Summary",
-      subtitle = "Strategic Performance & Leadership Overview",
+      subtitle = "Strategic Performance & Institutional Leadership Overview",
       caption = paste0("Generated by R-Studio (", R.version.string, ") on ",
                        format(Sys.time(), "%B %d, %Y at %H:%M:%S")),
       theme = theme(

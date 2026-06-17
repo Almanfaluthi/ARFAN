@@ -21,6 +21,18 @@ co-authorship, bibliographic coupling, and citation hubs. 5. Text
 Mining: Generate beautiful word clouds and keyword co-occurrence
 networks.
 
+## Authors / Contributors
+
+- **Muhammad Almanfaluthi** - *Creator & Lead Developer* -
+  [Almanfaluthi](https://github.com/Almanfaluthi)
+- **Khusnul Fathoni Effendy** - *Methodology & Co-Author*
+- **Satini Yuniarsih** - *Methodology & Co-Author*
+- **Stefani Widodo** - *Methodology & Co-Author*
+- **Zuhrotun Ulya** - *Methodology & Co-Author*
+- **Shalahuddin Maulidi** - *Methodology & Co-Author*
+- **Rara Tarika** - *Methodology & Co-Author*
+- **Abidah Safitri** - *Methodology & Co-Author*
+
 ## Installation
 
 You can install the development version of ARFAN like so:
@@ -32,19 +44,19 @@ This is a basic example which shows you how to solve a common problem:
 
 ``` r
 library(ARFAN)
-alman_bib_A0_ExecutiveSummary(df_patientsafety, year_col = "Year", author_col = "Authors", cite_col = "Cited by", affil_col = "Affiliations")
+alman_bib_A0_ExecutiveSummary(df_patientsafety)
 ```
 
 <img src="man/figures/README-example-1.png" width="100%" />
 
 ``` r
-alman_bib_A0_ExecutiveSummary(df_herbal_leptospirosis, primary_col = "#2c3e50", accent_col = "#e74c3c", exclude_terms = c("United States"))
+alman_bib_A0_ExecutiveSummary(df_herbal_leptospirosis, primary_col = "#2c3e50", accent_col = "#e74c3c")
 ```
 
 <img src="man/figures/README-example-2.png" width="100%" />
 
 ``` r
-alman_bib_A0_ExecutiveSummary(df_herbal_snakebite, primary_col = "red", accent_col = "blue", exclude_terms = c("United States"))
+alman_bib_A0_ExecutiveSummary(df_herbal_snakebite, primary_col = "red", accent_col = "blue")
 ```
 
 <img src="man/figures/README-example-3.png" width="100%" />

@@ -40,12 +40,12 @@ in a modern, grid-based infographic layout.
 \examples{
 \dontrun{
 # 1. Standard (Maroon/Red look)
-alman_bib_A0_ExecutiveSummary(df_patientsafety, year_col = "Year", author_col = "Authors", cite_col = "Cited by", affil_col = "Affiliations")
+alman_bib_A0_ExecutiveSummary(df_patientsafety)
 
-# 2. Standard with Exclusion (Remove USA)
-alman_bib_A0_ExecutiveSummary(df_herbal_leptospirosis, primary_col = "#2c3e50", accent_col = "#e74c3c", exclude_terms = c("United States"))
+# 2. Standard with Exclusion (Custom color)
+alman_bib_A0_ExecutiveSummary(df_herbal_leptospirosis, primary_col = "#2c3e50", accent_col = "#e74c3c")
 
 # 3. Standard with other colour
-alman_bib_A0_ExecutiveSummary(df_herbal_snakebite, primary_col = "red", accent_col = "blue", exclude_terms = c("United States"))
+alman_bib_A0_ExecutiveSummary(df_herbal_snakebite, primary_col = "red", accent_col = "blue")
 }
 }

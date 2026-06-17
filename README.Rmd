@@ -26,6 +26,17 @@ Bridging the gap between raw citation data (from Scopus, Web of Science, PubMed,
 4. Network Mapping: Visualize co-authorship, bibliographic coupling, and citation hubs.
 5. Text Mining: Generate beautiful word clouds and keyword co-occurrence networks.
 
+## Authors / Contributors
+
+* **Muhammad Almanfaluthi** - *Creator & Lead Developer* - [Almanfaluthi](https://github.com/Almanfaluthi)
+* **Khusnul Fathoni Effendy** - *Methodology & Co-Author*
+* **Satini Yuniarsih** - *Methodology & Co-Author*
+* **Stefani Widodo** - *Methodology & Co-Author*
+* **Zuhrotun Ulya** - *Methodology & Co-Author*
+* **Shalahuddin Maulidi** - *Methodology & Co-Author*
+* **Rara Tarika** - *Methodology & Co-Author*
+* **Abidah Safitri** - *Methodology & Co-Author*
+
 ## Installation
 
 You can install the development version of ARFAN like so:
@@ -38,9 +49,9 @@ This is a basic example which shows you how to solve a common problem:
 
 ```{r example}
 library(ARFAN)
-alman_bib_A0_ExecutiveSummary(df_patientsafety, year_col = "Year", author_col = "Authors", cite_col = "Cited by", affil_col = "Affiliations")
-alman_bib_A0_ExecutiveSummary(df_herbal_leptospirosis, primary_col = "#2c3e50", accent_col = "#e74c3c", exclude_terms = c("United States"))
-alman_bib_A0_ExecutiveSummary(df_herbal_snakebite, primary_col = "red", accent_col = "blue", exclude_terms = c("United States"))
+alman_bib_A0_ExecutiveSummary(df_patientsafety)
+alman_bib_A0_ExecutiveSummary(df_herbal_leptospirosis, primary_col = "#2c3e50", accent_col = "#e74c3c")
+alman_bib_A0_ExecutiveSummary(df_herbal_snakebite, primary_col = "red", accent_col = "blue")
 alman_bib_A0_ExecutiveSummaryIndo(df_herbal_tb, primary_col = "#1a5276", accent_col = "#e67e22")
 alman_bib_A0_ExecutiveSummaryIndo(df_herbal_filaria, primary_col = "#2c3e50", accent_col = "#e74c3c")
 ```

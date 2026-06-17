@@ -3,9 +3,9 @@
 
 # ARFAN
 
-ARFAN (Academic Research Framework for Author Networks) is a
-comprehensive, elegant, and user-friendly R package designed for modern
-bibliometric and scientometric analysis.
+ARFAN (Analytical R Functions for Article Networks) is a comprehensive,
+elegant, and user-friendly R package designed for modern bibliometric
+and scientometric analysis.
 
 Bridging the gap between raw citation data (from Scopus, Web of Science,
 PubMed, etc.) and publication-ready visualizations, ARFAN provides
@@ -24,7 +24,7 @@ networks.
 ## Installation
 
 You can install the development version of ARFAN like so:
-‘devtools::install_github(“Almanfaluthi/ARFAN”)’
+“devtools::install_github(”Almanfaluthi/ARFAN”)”
 
 ## Example
 
@@ -32,13 +32,19 @@ This is a basic example which shows you how to solve a common problem:
 
 ``` r
 library(ARFAN)
-alman_bib_A0_ExecutiveSummary(data = df_patientsafety)
+alman_bib_A0_ExecutiveSummary(df_patientsafety, year_col = "Year", author_col = "Authors", cite_col = "Cited by", affil_col = "Affiliations")
 ```
 
 <img src="man/figures/README-example-1.png" width="100%" />
 
 ``` r
-alman_bib_A0_ExecutiveSummary(data = df_leadership)
+alman_bib_A0_ExecutiveSummary(df_herbal_leptospirosis, primary_col = "#2c3e50", accent_col = "#e74c3c", exclude_terms = c("United States"))
 ```
 
 <img src="man/figures/README-example-2.png" width="100%" />
+
+``` r
+alman_bib_A0_ExecutiveSummary(df_herbal_snakebite, primary_col = "red", accent_col = "yellow", exclude_terms = c("United States"))
+```
+
+<img src="man/figures/README-example-3.png" width="100%" />

@@ -3,7 +3,7 @@
 \docType{data}
 \name{df_leadership}
 \alias{df_leadership}
-\title{Contoh Data Bibliometrik untuk Analisis ARFAN kasus manajerial kepemimpinan}
+\title{Dataset for bibliometric practice coming from Hospital Management field in Hospital Leadership.}
 \format{
 Sebuah data frame dengan 500 baris dan 10 kolom:
 \describe{
@@ -16,14 +16,12 @@ Sebuah data frame dengan 500 baris dan 10 kolom:
 }
 }
 \source{
-Data diekstrak dari \url{https://www.scopus.com/} sebagai sampel anonim.
+Data diekstrak dari \url{https://www.scopus.com/}
 }
 \usage{
 df_leadership
 }
 \description{
-Dataset ini berisi contoh data ekspor dari Scopus yang digunakan
-untuk mendemonstrasikan fungsi-fungsi di dalam package ARFAN,
-seperti pembuatan Executive Summary Dashboard.
+Dataset for bibliometric practice coming from Hospital Management field in Hospital Leadership.
 }
 \keyword{datasets}

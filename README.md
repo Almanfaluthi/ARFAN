@@ -44,7 +44,19 @@ alman_bib_A0_ExecutiveSummary(df_herbal_leptospirosis, primary_col = "#2c3e50", 
 <img src="man/figures/README-example-2.png" width="100%" />
 
 ``` r
-alman_bib_A0_ExecutiveSummary(df_herbal_snakebite, primary_col = "red", accent_col = "yellow", exclude_terms = c("United States"))
+alman_bib_A0_ExecutiveSummary(df_herbal_snakebite, primary_col = "red", accent_col = "blue", exclude_terms = c("United States"))
 ```
 
 <img src="man/figures/README-example-3.png" width="100%" />
+
+``` r
+alman_bib_A0_ExecutiveSummaryIndo(df_herbal_tb, primary_col = "#1a5276", accent_col = "#e67e22")
+```
+
+<img src="man/figures/README-example-4.png" width="100%" />
+
+``` r
+alman_bib_A0_ExecutiveSummaryIndo(df_herbal_filaria, primary_col = "#2c3e50", accent_col = "#e74c3c")
+```
+
+<img src="man/figures/README-example-5.png" width="100%" />

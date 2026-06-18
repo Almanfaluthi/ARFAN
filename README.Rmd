@@ -49,8 +49,21 @@ This is a basic example which shows you how to solve a common problem:
 
 ```{r example}
 library(ARFAN)
-alman_bib_A0_ExecutiveSummary(df_patientsafety)
+# Almanfaluthi et all (Evolution of Artificial Intelligence in Patient Safety Across South East Asia) - https://doi.org/10.53806/iamsph.v7i1.1447
+alman_bib_A0_ExecutiveSummary(df_patientsafety) 
+
+# Arista Elda Monica et all (Herbal Medicine field in Tropical Disease Filariasis) - https://doi.org/10.1051/bioconf/202515403002
 alman_bib_A0_ExecutiveSummaryIndo(df_herbal_filaria, primary_col = "#2c3e50", accent_col = "#e74c3c")
+
+# Ade Dian Shah Putri et all (Herbal Medicine field in Tropical Disease Leptospirosis) - https://doi.org/10.1051/bioconf/202515404001
 alman_bib_A1_TrendAnalysis(df_herbal_leptospirosis)
+
+# Ilham Jaluludin et all (Herbal Medicine field in Tropical Disease Snake bite) - https://doi.org/10.1051/bioconf/202515403005
 alman_bib_A2a_AuthorsAnalysis(df_herbal_snakebite)
+
+# Ilham Jaluludin et all (Herbal Medicine field in Tropical Disease Snake bite) - https://doi.org/10.1051/bioconf/202515403005
+alman_bib_A3a_GlobalHeatmap(df_herbal_snakebite)
+
+# Ade Dian Shah Putri et all (Herbal Medicine field in Tropical Disease Leptospirosis) - https://doi.org/10.1051/bioconf/202515404001
+alman_bib_A3b_RegionalHeatmap(df_herbal_leptospirosis)
 ```

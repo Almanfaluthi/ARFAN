@@ -55,18 +55,23 @@ This is a basic example which shows you how to solve a common problem:
 
 ``` r
 library(ARFAN)
-alman_bib_A0_ExecutiveSummary(df_patientsafety)
+# Almanfaluthi et all (Evolution of Artificial Intelligence in Patient Safety Across South East Asia) - https://doi.org/10.53806/iamsph.v7i1.1447
+alman_bib_A0_ExecutiveSummary(df_patientsafety) 
 ```
 
 <img src="man/figures/README-example-1.png" width="100%" />
 
 ``` r
+
+# Arista Elda Monica et all (Herbal Medicine field in Tropical Disease Filariasis) - https://doi.org/10.1051/bioconf/202515403002
 alman_bib_A0_ExecutiveSummaryIndo(df_herbal_filaria, primary_col = "#2c3e50", accent_col = "#e74c3c")
 ```
 
 <img src="man/figures/README-example-2.png" width="100%" />
 
 ``` r
+
+# Ade Dian Shah Putri et all (Herbal Medicine field in Tropical Disease Leptospirosis) - https://doi.org/10.1051/bioconf/202515404001
 alman_bib_A1_TrendAnalysis(df_herbal_leptospirosis)
 #> `geom_smooth()` using formula = 'y ~ x'
 ```
@@ -74,7 +79,25 @@ alman_bib_A1_TrendAnalysis(df_herbal_leptospirosis)
 <img src="man/figures/README-example-3.png" width="100%" />
 
 ``` r
+
+# Ilham Jaluludin et all (Herbal Medicine field in Tropical Disease Snake bite) - https://doi.org/10.1051/bioconf/202515403005
 alman_bib_A2a_AuthorsAnalysis(df_herbal_snakebite)
 ```
 
 <img src="man/figures/README-example-4.png" width="100%" />
+
+``` r
+
+# Ilham Jaluludin et all (Herbal Medicine field in Tropical Disease Snake bite) - https://doi.org/10.1051/bioconf/202515403005
+alman_bib_A3a_GlobalHeatmap(df_herbal_snakebite)
+```
+
+<img src="man/figures/README-example-5.png" width="100%" />
+
+``` r
+
+# Ade Dian Shah Putri et all (Herbal Medicine field in Tropical Disease Leptospirosis) - https://doi.org/10.1051/bioconf/202515404001
+alman_bib_A3b_RegionalHeatmap(df_herbal_leptospirosis)
+```
+
+<img src="man/figures/README-example-6.png" width="100%" />

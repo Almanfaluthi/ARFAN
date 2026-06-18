@@ -6,6 +6,8 @@ if (getRversion() >= "2.15.1") {
     "Year", "Freq", "Item", "Cites", "Target_Cites",
     "Pubs", "Total_Cites", "Country","Institution",
     "frac_score", "Fractional_Articles", "Total_Articles",
-    ".", "long", "lat", "group", "region", "Docs"
+    ".", "long", "lat", "group", "region", "Docs",
+    "Total_Citations", "Total_Docs", "n_SCP", "n_MCP", "Type", "Count",
+    "Country", "country_list", "collab_type", "Final_Org", "CPP"
   ))
 }

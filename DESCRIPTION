@@ -20,6 +20,7 @@ Imports:
     countrycode,
     dplyr,
     ggplot2,
+    ggrepel,
     maps,
     patchwork,
     rlang,

@@ -37,6 +37,7 @@ Features:
 \item Automates Q1/Median/Q3 calculation from raw data.
 \item Sorts topics by Recency (Newest on top).
 \item Visualizes Frequency (Bubble Size) and Recency (Color).
+\item Year axis and legend strictly formatted as whole integers.
 }
 }
 \examples{

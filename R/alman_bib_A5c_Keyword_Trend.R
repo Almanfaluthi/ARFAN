@@ -7,6 +7,7 @@
 #' 1. Automates Q1/Median/Q3 calculation from raw data.
 #' 2. Sorts topics by Recency (Newest on top).
 #' 3. Visualizes Frequency (Bubble Size) and Recency (Color).
+#' 4. Year axis and legend strictly formatted as whole integers.
 #'
 #' @param data A data frame containing bibliographic data.
 #' @param keyword_col String. Column name for keywords (default: "Author.Keywords").
@@ -19,7 +20,7 @@
 #' @importFrom stats quantile median
 #' @importFrom stringr str_trim str_to_lower str_to_title
 #' @importFrom dplyr select filter mutate group_by summarize arrange desc n pull
-#' @importFrom ggplot2 ggplot aes geom_segment geom_point scale_color_gradient scale_size_continuous labs theme_minimal annotate theme element_text element_blank margin
+#' @importFrom ggplot2 ggplot aes geom_segment geom_point scale_color_gradient scale_size_continuous scale_x_continuous labs theme_minimal annotate theme element_text element_blank margin
 #' @importFrom tidyr separate_rows
 #' @importFrom rlang sym !!
 #' @importFrom utils head
@@ -122,11 +123,11 @@ alman_bib_A5c_Keyword_Trend <- function(data,
 
   p <- ggplot2::ggplot(df_stats, ggplot2::aes(y = Keyword)) +
 
-    # 1. The Timeline Range (Q1 to Q3) - Changed size to linewidth
+    # 1. The Timeline Range (Q1 to Q3)
     ggplot2::geom_segment(ggplot2::aes(x = Year_Q1, xend = Year_Q3, yend = Keyword),
                           color = "gray70", linewidth = 1.5, alpha = 0.5) +
 
-    # 2. Thin line extending to Min/Max - Changed size to linewidth
+    # 2. Thin line extending to Min/Max
     ggplot2::geom_segment(ggplot2::aes(x = Year_Min, xend = Year_Max, yend = Keyword),
                           color = "gray90", linewidth = 0.5, linetype = "dotted") +
 
@@ -138,8 +139,16 @@ alman_bib_A5c_Keyword_Trend <- function(data,
     ggplot2::annotate("text", x = min(df_stats$Year_Min), y = top_n, label = stats_label,
                       hjust = 0, vjust = 1, size = 3, fontface = "italic", color = "#2c3e50") +
 
-    # 5. Scales
-    ggplot2::scale_color_gradient(low = low_col, high = high_col, name = "Median Year (Recency)") +
+    # 5. Scales (X-Axis and Color Legend strictly integers)
+    ggplot2::scale_x_continuous(breaks = function(x) unique(as.integer(pretty(x)))) +
+
+    # NEW FIX: Applied the same integer-forcing breaks to the color legend!
+    ggplot2::scale_color_gradient(
+      low = low_col, high = high_col,
+      name = "Median Year (Recency)",
+      breaks = function(x) unique(as.integer(pretty(x)))
+    ) +
+
     ggplot2::scale_size_continuous(range = c(4, 10), name = "Frequency") +
 
     # 6. Labels & Theme

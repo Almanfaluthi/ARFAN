@@ -28,14 +28,14 @@ Bridging the gap between raw citation data (from Scopus, Web of Science, PubMed,
 
 ## Authors / Contributors
 
-* **Muhammad Almanfaluthi** - *Creator & Lead Developer* - [Almanfaluthi](https://github.com/Almanfaluthi)
-* **Khusnul Fathoni Effendy** - *Methodology & Co-Author*
-* **Satini Yuniarsih** - *Methodology & Co-Author*
-* **Stefani Widodo** - *Methodology & Co-Author*
-* **Zuhrotun Ulya** - *Methodology & Co-Author*
-* **Shalahuddin Maulidi** - *Methodology & Co-Author*
-* **Rara Tarika** - *Methodology & Co-Author*
-* **Abidah Safitri** - *Methodology & Co-Author*
+* **Muhammad Almanfaluthi** - *Creator & Lead Developer* - [Almanfaluthi](https://github.com/Almanfaluthi) - Department of Tropical Medicine and Parasitology, Faculty of Medicine, Universitas Muhammadiyah Purwokerto, Central Java, Indonesia
+* **Khusnul Fathoni Effendy** - *Methodology & Co-Author* -  Faculty of Medicine, Brawijaya University, East Java, Indonesia
+* **Satini Yuniarsih** - *Methodology & Co-Author* -  Muslim Kaffah Foundation, East Java, Indonesia
+* **Stefani Widodo** - *Methodology & Co-Author* - Department of Public Health, Faculty of Medicine, Universitas Muhammadiyah Purwokerto, Central Java, Indonesia
+* **Zuhrotun Ulya** - *Methodology & Co-Author*  -  Faculty of Medicine, Brawijaya University, East Java, Indonesia
+* **Shalahuddin Maulidi** - *Methodology & Co-Author* - Lembaga Kesehatan Gigi dan Mulut Pusat Kesehatan TNI Angkatan Darat (Indonesian Army)
+* **Rara Tarika** - *Methodology & Co-Author*  - Lembaga Kesehatan Gigi dan Mulut Pusat Kesehatan TNI Angkatan Darat (Indonesian Army)
+* **Abidah Safitri** - *Methodology & Co-Author* -  Muslim Kaffah Foundation, East Java, Indonesia
 
 ## Installation
 

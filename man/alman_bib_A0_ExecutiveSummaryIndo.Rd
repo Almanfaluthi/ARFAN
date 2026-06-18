@@ -39,8 +39,10 @@ in a modern, grid-based infographic layout, focusing on top institutions.
 }
 \examples{
 \dontrun{
-# Standard deployment for Indonesian institutional analysis
-alman_bib_A0_ExecutiveSummaryIndo(df_herbal_tb, primary_col = "#1a5276", accent_col = "#e67e22")
-alman_bib_A0_ExecutiveSummaryIndo(df_herbal_filaria, primary_col = "#1a5276", accent_col = "#e67e22")
+# Standard deployment for institutional analysis
+alman_bib_A0_ExecutiveSummaryIndo(df_herbal_tb,
+  primary_col = "#1a5276", accent_col = "#e67e22")
+alman_bib_A0_ExecutiveSummaryIndo(df_herbal_filaria,
+  primary_col = "#1a5276", accent_col = "#e67e22")
 }
 }

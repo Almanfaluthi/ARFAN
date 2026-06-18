@@ -14,15 +14,17 @@
 #' @importFrom dplyr group_by summarize
 #' @importFrom ggplot2 ggplot aes geom_area geom_line geom_vline geom_text labs theme_minimal theme geom_smooth scale_x_continuous
 #' @importFrom trend mk.test pettitt.test
+#' @importFrom stats lm coef
 #' @returns A \code{ggplot2} object.
 #' @export
 #' @examples
 #' \dontrun{
 #' # 1. Standard (Maroon/Red look)
-#' marsumy_A1_TrendAnalysis(df_patientsafety)
+#' alman_bib_A1_TrendAnalysis(df_patientsafety)
 #'
 #' # 2. Custom Colors
-#' marsumy_A1_TrendAnalysis(df_herbal_leptospirosis, fill_col = "#2ecc71", line_col = "#27ae60", alpha_val = 0.5)
+#' alman_bib_A1_TrendAnalysis(df_herbal_leptospirosis,
+#'   fill_col = "#2ecc71", line_col = "#27ae60", alpha_val = 0.5)
 #' }
 
 alman_bib_A1_TrendAnalysis <- function(data, year_col = "Year",

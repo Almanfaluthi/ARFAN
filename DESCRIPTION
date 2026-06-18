@@ -16,15 +16,18 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.3
-Imports: 
+Imports:
     dplyr,
     ggplot2,
     patchwork,
     rlang,
+    stats,
     stringr,
-    tidyr
+    tidyr,
+    trend
 Depends: 
     R (>= 3.5)
 LazyData: true
 URL: https://github.com/Almanfaluthi/ARFAN
 BugReports: https://github.com/Almanfaluthi/ARFAN/issues
+LazyDataCompression: xz

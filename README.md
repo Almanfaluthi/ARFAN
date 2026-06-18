@@ -24,14 +24,25 @@ networks.
 ## Authors / Contributors
 
 - **Muhammad Almanfaluthi** - *Creator & Lead Developer* -
-  [Almanfaluthi](https://github.com/Almanfaluthi)
-- **Khusnul Fathoni Effendy** - *Methodology & Co-Author*
-- **Satini Yuniarsih** - *Methodology & Co-Author*
-- **Stefani Widodo** - *Methodology & Co-Author*
-- **Zuhrotun Ulya** - *Methodology & Co-Author*
-- **Shalahuddin Maulidi** - *Methodology & Co-Author*
-- **Rara Tarika** - *Methodology & Co-Author*
-- **Abidah Safitri** - *Methodology & Co-Author*
+  [Almanfaluthi](https://github.com/Almanfaluthi) - Department of
+  Tropical Medicine and Parasitology, Faculty of Medicine, Universitas
+  Muhammadiyah Purwokerto, Central Java, Indonesia
+- **Khusnul Fathoni Effendy** - *Methodology & Co-Author* - Faculty of
+  Medicine, Brawijaya University, East Java, Indonesia
+- **Satini Yuniarsih** - *Methodology & Co-Author* - Muslim Kaffah
+  Foundation, East Java, Indonesia
+- **Stefani Widodo** - *Methodology & Co-Author* - Department of Public
+  Health, Faculty of Medicine, Universitas Muhammadiyah Purwokerto,
+  Central Java, Indonesia
+- **Zuhrotun Ulya** - *Methodology & Co-Author* - Faculty of Medicine,
+  Brawijaya University, East Java, Indonesia
+- **Shalahuddin Maulidi** - *Methodology & Co-Author* - Lembaga
+  Kesehatan Gigi dan Mulut Pusat Kesehatan TNI Angkatan Darat
+  (Indonesian Army)
+- **Rara Tarika** - *Methodology & Co-Author* - Lembaga Kesehatan Gigi
+  dan Mulut Pusat Kesehatan TNI Angkatan Darat (Indonesian Army)
+- **Abidah Safitri** - *Methodology & Co-Author* - Muslim Kaffah
+  Foundation, East Java, Indonesia
 
 ## Installation
 
@@ -50,25 +61,20 @@ alman_bib_A0_ExecutiveSummary(df_patientsafety)
 <img src="man/figures/README-example-1.png" width="100%" />
 
 ``` r
-alman_bib_A0_ExecutiveSummary(df_herbal_leptospirosis, primary_col = "#2c3e50", accent_col = "#e74c3c")
+alman_bib_A0_ExecutiveSummaryIndo(df_herbal_filaria, primary_col = "#2c3e50", accent_col = "#e74c3c")
 ```
 
 <img src="man/figures/README-example-2.png" width="100%" />
 
 ``` r
-alman_bib_A0_ExecutiveSummary(df_herbal_snakebite, primary_col = "red", accent_col = "blue")
+alman_bib_A1_TrendAnalysis(df_herbal_leptospirosis)
+#> `geom_smooth()` using formula = 'y ~ x'
 ```
 
 <img src="man/figures/README-example-3.png" width="100%" />
 
 ``` r
-alman_bib_A0_ExecutiveSummaryIndo(df_herbal_tb, primary_col = "#1a5276", accent_col = "#e67e22")
+alman_bib_A2a_AuthorsAnalysis(df_herbal_snakebite)
 ```
 
 <img src="man/figures/README-example-4.png" width="100%" />
-
-``` r
-alman_bib_A0_ExecutiveSummaryIndo(df_herbal_filaria, primary_col = "#2c3e50", accent_col = "#e74c3c")
-```
-
-<img src="man/figures/README-example-5.png" width="100%" />

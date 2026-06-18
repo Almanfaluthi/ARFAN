@@ -29,10 +29,12 @@
 #' alman_bib_A0_ExecutiveSummary(df_patientsafety)
 #'
 #' # 2. Standard with Exclusion (Custom color)
-#' alman_bib_A0_ExecutiveSummary(df_herbal_leptospirosis, primary_col = "#2c3e50", accent_col = "#e74c3c")
+#' alman_bib_A0_ExecutiveSummary(df_herbal_leptospirosis,
+#'   primary_col = "#2c3e50", accent_col = "#e74c3c")
 #'
 #' # 3. Standard with other colour
-#' alman_bib_A0_ExecutiveSummary(df_herbal_snakebite, primary_col = "red", accent_col = "blue")
+#' alman_bib_A0_ExecutiveSummary(df_herbal_snakebite,
+#'   primary_col = "red", accent_col = "blue")
 #'}
 
 alman_bib_A0_ExecutiveSummary <- function(data,

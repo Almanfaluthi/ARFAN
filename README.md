@@ -55,7 +55,8 @@ This is a basic example which shows you how to solve a common problem:
 
 ``` r
 library(ARFAN)
-# Almanfaluthi et all (Evolution of Artificial Intelligence in Patient Safety Across South East Asia) - https://doi.org/10.53806/iamsph.v7i1.1447
+# Almanfaluthi et all (Evolution of Artificial Intelligence in Patient Safety Across South East Asia)
+# https://doi.org/10.53806/iamsph.v7i1.1447
 alman_bib_A0_ExecutiveSummary(df_patientsafety) 
 ```
 
@@ -63,7 +64,8 @@ alman_bib_A0_ExecutiveSummary(df_patientsafety)
 
 ``` r
 
-# Arista Elda Monica et all (Herbal Medicine field in Tropical Disease Filariasis) - https://doi.org/10.1051/bioconf/202515403002
+# Arista Elda Monica et all (Herbal Medicine field in Tropical Disease Filariasis)
+# https://doi.org/10.1051/bioconf/202515403002
 alman_bib_A0_ExecutiveSummaryIndo(df_herbal_filaria, primary_col = "#2c3e50", accent_col = "#e74c3c")
 ```
 
@@ -71,7 +73,8 @@ alman_bib_A0_ExecutiveSummaryIndo(df_herbal_filaria, primary_col = "#2c3e50", ac
 
 ``` r
 
-# Ade Dian Shah Putri et all (Herbal Medicine field in Tropical Disease Leptospirosis) - https://doi.org/10.1051/bioconf/202515404001
+# Ade Dian Shah Putri et all (Herbal Medicine field in Tropical Disease Leptospirosis)
+# https://doi.org/10.1051/bioconf/202515404001
 alman_bib_A1_TrendAnalysis(df_herbal_leptospirosis)
 #> `geom_smooth()` using formula = 'y ~ x'
 ```
@@ -80,7 +83,8 @@ alman_bib_A1_TrendAnalysis(df_herbal_leptospirosis)
 
 ``` r
 
-# Ilham Jaluludin et all (Herbal Medicine field in Tropical Disease Snake bite) - https://doi.org/10.1051/bioconf/202515403005
+# Ilham Jaluludin et all (Herbal Medicine field in Tropical Disease Snake bite)
+# https://doi.org/10.1051/bioconf/202515403005
 alman_bib_A2a_AuthorsAnalysis(df_herbal_snakebite)
 ```
 
@@ -88,7 +92,8 @@ alman_bib_A2a_AuthorsAnalysis(df_herbal_snakebite)
 
 ``` r
 
-# Ilham Jaluludin et all (Herbal Medicine field in Tropical Disease Snake bite) - https://doi.org/10.1051/bioconf/202515403005
+# Ilham Jaluludin et all (Herbal Medicine field in Tropical Disease Snake bite)
+# https://doi.org/10.1051/bioconf/202515403005
 alman_bib_A3a_GlobalHeatmap(df_herbal_snakebite)
 ```
 
@@ -96,8 +101,28 @@ alman_bib_A3a_GlobalHeatmap(df_herbal_snakebite)
 
 ``` r
 
-# Ade Dian Shah Putri et all (Herbal Medicine field in Tropical Disease Leptospirosis) - https://doi.org/10.1051/bioconf/202515404001
+# Ade Dian Shah Putri et all (Herbal Medicine field in Tropical Disease Leptospirosis)
+# https://doi.org/10.1051/bioconf/202515404001
 alman_bib_A3b_RegionalHeatmap(df_herbal_leptospirosis)
 ```
 
 <img src="man/figures/README-example-6.png" width="100%" />
+
+``` r
+
+# Almanfaluthi et all (Evolution of Artificial Intelligence in Patient Safety Across South East Asia)
+# https://doi.org/10.53806/iamsph.v7i1.1447
+alman_bib_A4a_ProductivityCountry(df_patientsafety)
+#> Using citation column: Cited.by
+```
+
+<img src="man/figures/README-example-7.png" width="100%" />
+
+``` r
+
+# Annisa Nur Azizah et all (Herbal Medicine field in Tropical Disease Tuberculosis)
+# https://doi.org/10.1051/bioconf/202515403001
+alman_bib_A4b_ProductivityInstitution(df_herbal_tb)
+```
+
+<img src="man/figures/README-example-8.png" width="100%" />

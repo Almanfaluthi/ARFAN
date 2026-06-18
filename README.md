@@ -126,3 +126,60 @@ alman_bib_A4b_ProductivityInstitution(df_herbal_tb)
 ```
 
 <img src="man/figures/README-example-8.png" width="100%" />
+
+``` r
+
+# Berlianda Nur Sabilla et all (Herbal Medicine field in Tropical Disease Dengue)
+# https://doi.org/10.1051/bioconf/202515403003
+alman_bib_A4c_ProductivityJournal(df_herbal_dengue)
+```
+
+<img src="man/figures/README-example-9.png" width="100%" />
+
+``` r
+
+# Berlianda Nur Sabilla et all (Herbal Medicine field in Tropical Disease Dengue)
+# https://doi.org/10.1051/bioconf/202515403003
+alman_bib_A5a_Keyword_Occurance(df_herbal_dengue)
+#> $plot
+```
+
+<img src="man/figures/README-example-10.png" width="100%" />
+
+    #> 
+    #> $global_stats
+    #>                    Metric Value
+    #> 1         Network Density 0.176
+    #> 2 Modularity (Clustering) 0.365
+    #> 3        Network Diameter 6.000
+    #> 4         Avg Path Length 2.640
+    #> 
+    #> $top_nodes
+    #> # A tibble: 10 × 4
+    #>    name                     Community Betweenness Degree
+    #>    <chr>                    <fct>           <dbl>  <dbl>
+    #>  1 dengue                   2                42        5
+    #>  2 aedes aegypti            1                38        7
+    #>  3 denv-2                   3                22        2
+    #>  4 repellent                1                15.5      3
+    #>  5 antiviral activity       3                12        2
+    #>  6 aedes albopictus         2                10        2
+    #>  7 indonesia                4                 5        2
+    #>  8 dengue hemorrhagic fever 4                 4.5      2
+    #>  9 dhf                      1                 0        2
+    #> 10 essential oil            1                 0        1
+
+    # Annisa Nur Azizah et all (Herbal Medicine field in Tropical Disease Tuberculosis)
+    # https://doi.org/10.1051/bioconf/202515403001
+    alman_bib_A5b_Keyword_Cloud(df_herbal_tb)
+
+<img src="man/figures/README-example-11.png" width="100%" />
+
+``` r
+
+# Almanfaluthi et all (Evolution of Artificial Intelligence in Patient Safety Across South East Asia)
+# https://doi.org/10.53806/iamsph.v7i1.1447
+alman_bib_A5c_Keyword_Trend(df_patientsafety)
+```
+
+<img src="man/figures/README-example-12.png" width="100%" />

@@ -8,6 +8,10 @@ if (getRversion() >= "2.15.1") {
     "frac_score", "Fractional_Articles", "Total_Articles",
     ".", "long", "lat", "group", "region", "Docs",
     "Total_Citations", "Total_Docs", "n_SCP", "n_MCP", "Type", "Count",
-    "Country", "country_list", "collab_type", "Final_Org", "CPP"
+    "Country", "country_list", "collab_type", "Final_Org", "CPP",
+    "Journal", "Journal_Display", "DocID", "Keyword", "Freq", "Keyword.x",
+    "Keyword.y", "Source", "Target", "Weight", "name", "Community",
+    "Betweenness", "Degree", "nodes", "Year_Min", "Year_Q1", "Year_Med",
+    "Year_Q3", "Year_Max", "Duration"
   ))
 }

@@ -8,7 +8,7 @@ alman_bib_A4b_ProductivityInstitution(
   data,
   affil_col = "Affiliations",
   cite_col = "Cited by",
-  top_n = 20,
+  top_n = 10,
   min_citations = 5,
   palette = "viridis"
 )
@@ -39,12 +39,12 @@ Features:
 \examples{
 \dontrun{
 # Default (Viridis Palette - Green/Blue/Yellow)
-alman_bib_A4b_ProductivityInstitution(df_herbal_tb, top_n = 20)
+alman_bib_A4b_ProductivityInstitution(df_herbal_tb)
 
 # Magma Palette (Black/Purple/Orange/Yellow)
 alman_bib_A4b_ProductivityInstitution(df_herbal_tb, top_n = 15, palette = "magma")
 
 # Plasma Palette
-alman_bib_A4b_ProductivityInstitution(df_herbal_tb, top_n = 10, palette = "plasma")
+alman_bib_A4b_ProductivityInstitution(df_herbal_tb, top_n = 20, palette = "plasma")
 }
 }

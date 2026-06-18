@@ -20,13 +20,17 @@ Imports:
     countrycode,
     dplyr,
     ggplot2,
+    ggraph,
     ggrepel,
+    ggwordcloud,
+    igraph,
     maps,
     patchwork,
     rlang,
     scales,
     stats,
     stringr,
+    tidygraph,
     tidyr,
     trend
 Depends: 

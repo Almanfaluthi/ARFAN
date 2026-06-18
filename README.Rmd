@@ -80,4 +80,8 @@ alman_bib_A4a_ProductivityCountry(df_patientsafety)
 # Annisa Nur Azizah et all (Herbal Medicine field in Tropical Disease Tuberculosis)
 # https://doi.org/10.1051/bioconf/202515403001
 alman_bib_A4b_ProductivityInstitution(df_herbal_tb)
+
+# Berlianda Nur Sabilla et all (Herbal Medicine field in Tropical Disease Dengue)
+# https://doi.org/10.1051/bioconf/202515403003
+alman_bib_A4c_ProductivityJournal(df_herbal_dengue)
 ```
